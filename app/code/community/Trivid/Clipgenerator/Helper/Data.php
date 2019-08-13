@@ -164,6 +164,7 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 		if (!empty($success)) {
 			$count = 0;
+			Mage::app()->setCurrentStore(Mage::getModel('core/store')->load(Mage_Core_Model_App::ADMIN_STORE_ID));
 			foreach ($success as $id) {
 				$productArray[$id]->setData('clipgenerator_show', 1);
 				$productArray[$id]->save();
@@ -197,6 +198,7 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 		if (!empty($success)) {
 			$count = 0;
+			Mage::app()->setCurrentStore(Mage::getModel('core/store')->load(Mage_Core_Model_App::ADMIN_STORE_ID));
 			foreach ($success as $id) {
 				$productArray[$id]->setData('clipgenerator_show', 0);
 				$productArray[$id]->save();
@@ -319,6 +321,7 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 			}
 			$videoXml = $video->asXml();
 			$videoId = $this->clipgeneratorClient->saveVideo($videoXml);
+			Mage::app()->setCurrentStore(Mage::getModel('core/store')->load(Mage_Core_Model_App::ADMIN_STORE_ID));
 			if (!$_product->getData('clipgenerator_video_id')) {
 				$_product->setData('clipgenerator_video_id', $videoId);
 				$_product->save();

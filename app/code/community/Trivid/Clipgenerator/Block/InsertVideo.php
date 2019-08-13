@@ -69,7 +69,7 @@ class Trivid_Clipgenerator_Block_InsertVideo extends Mage_Core_Block_Text {
     private function _insertVideoHtml() {
 		$html = '';
 		if ($this->videoId && $this->show) {
-			$html = '<iframe id="clipgeneratorvideo" style="width:400px; height:300px; border:0px none;" src="http://data.clipgenerator.com/player/v2/Player.swf?autoplay=off&webcartURL=http%3A%2F%2Fcg-v3.clipgenerator.com%2FgetWebcart%3FvideoId%3D' . $this->videoId . '"></iframe>';
+			$html = '<iframe id="clipgeneratorvideo" style="width:400px; height:300px; border:0px none;" src="http://data.clipgenerator.com/player/v3/Player.swf?autoplay=off&webcartURL=http%3A%2F%2Fcg-v3.clipgenerator.com%2FgetWebcart%3FvideoId%3D' . $this->videoId . '"></iframe>';
 		}
 
 		return $html;

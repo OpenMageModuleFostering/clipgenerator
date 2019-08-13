@@ -32,7 +32,7 @@ class Trivid_Clipgenerator_Block_Video extends Mage_Core_Block_Text {
 		$video = $_product->getData('clipgenerator_video_id');
 		$show = $_product->getData('clipgenerator_show');
 		if ($video && $show) {
-			$html = '<iframe id="clipgeneratorvideo" style="width:400px; height:300px; border:0px none;" src="http://data.clipgenerator.com/player/v2/Player.swf?autoplay=off&webcartURL=http%3A%2F%2Fcg-v3.clipgenerator.com%2FgetWebcart%3FvideoId%3D' . $video . '"></iframe>';
+			$html = '<iframe id="clipgeneratorvideo" style="width:400px; height:300px; border:0px none;" src="http://data.clipgenerator.com/player/v3/Player.swf?autoplay=off&webcartURL=http%3A%2F%2Fcg-v3.clipgenerator.com%2FgetWebcart%3FvideoId%3D' . $video . '"></iframe>';
 		}
 
 		return $html;
