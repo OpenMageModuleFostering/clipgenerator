@@ -1,0 +1,27 @@
+<?php $user = Mage::helper('clipgenerator')->getUser(); ?>
+<?php if($user): ?>
+<div>
+	<label><?= Mage::helper('clipgenerator')->__('Verfügbare Video Slots') ?>
+		:</label>
+	<?= (int)$user['freeVideoSlots'] . " von " . (int)$user['availableVideoSlots'] ?>
+</div>
+<div>
+	<label><?= Mage::helper('clipgenerator')->__('Verfügbare Video Downloads') ?>
+		:</label>
+	<?php if ($user['renderJobsLeft']): ?>
+		<?= $user['renderJobsLeft'] ?>
+	<?php else: ?>
+		<?= Mage::helper('clipgenerator')->__('keine verfügbar') ?>
+	<?php endif; ?>
+</div>
+<?php else: ?>
+<div>
+    <a href="<?=Mage::helper("adminhtml")->getUrl("clipgenerator/adminhtml_orderform/index");?>"><?=Mage::helper('clipgenerator')->__('Bestellen Sie sich jetzt Ihr Videopaket!')?></a>
+</div>
+<?php endif; ?>
+<script type="text/javascript" src="/js/jscolor/jscolor.js"></script>
+<script type="text/javascript">
+	document.observe('dom:loaded', function () {
+		var myPicker = new jscolor.color(document.getElementById('clipgenerator_settings_clipgenerator_player_bgcolor'), {});
+	});
+</script>

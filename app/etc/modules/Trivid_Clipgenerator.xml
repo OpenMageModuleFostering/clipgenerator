@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Trivid_Clipgenerator>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Trivid_Clipgenerator>
+	</modules>
+</config>
