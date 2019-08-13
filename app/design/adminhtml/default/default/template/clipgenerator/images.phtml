@@ -49,8 +49,23 @@ $selArr = explode(';', trim($selected, ';'));
 <?php endif; ?>
 
 <script type="text/javascript">
+    var title = "<?= str_replace('"', '\'', $_product->getName()) ?>";
+    var description = <?= json_encode(str_replace('"', '\'', strip_tags($_product->getDescription()))) ?>;
+    var keywords = <?= json_encode(str_replace(array("\r\n", "\r", "\n"), " ", $_product->getMetaKeyword())) ?>;
+    var vTitle = "<?=$_product->getData('clipgenerator_title')?>";
+    var vDesc = <?= json_encode($_product->getData('clipgenerator_description')) ?>;
+    var vKey = "<?= $_product->getData('clipgenerator_keywords')?>";
 	$('clipgenerator_images_select').addClassName('hidden');
 	document.observe('dom:loaded', function () {
+        if(title != '' && !vTitle) {
+            $('clipgenerator_title').writeAttribute('value', title);
+        }
+        if(description != '' && !vDesc) {
+            $('clipgenerator_description').innerHTML = description;
+        }
+        if(keywords != '' && !vKey) {
+            $('clipgenerator_keywords').writeAttribute('value', keywords);
+        }
         $('clipgenerator_video_id').up().up().hide();
 		$$('.pico').each(function (el) {
 			el.setOpacity(0.5);

@@ -121,6 +121,19 @@ $music = $clipgen->getMusic();
 </div>
 <pre>
 </pre>
+<?php
+	$_product = Mage::registry('current_product');
+	$video = $_product->getData('clipgenerator_video_id');
+	$html = '<iframe id="clipgeneratorvideo" style="width:400px; height:300px; border:0px none;" src="http://data.clipgenerator.com/player/v3/Player.swf?autoplay=off&webcartURL=http%3A%2F%2Fcg-v3.clipgenerator.com%2FgetWebcart%3FvideoId%3D' . $video . '"></iframe>';
+?>
+<?php if($video): ?>
+<div class="preview">
+<br /><br />
+<label>Video Embed Code:</label> <textarea style="height:60px;"><?=$html?></textarea>
+<label>Preview:</label><br />
+<?=$html?>
+</div>
+<?php endif; ?>
 <script type="text/javascript">
 	// music storage
 	var storage = <?=json_encode($music)?>;

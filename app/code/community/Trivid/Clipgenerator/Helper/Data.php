@@ -242,6 +242,8 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 			$video->title = $_product->getData('clipgenerator_title') ? $_product->getData('clipgenerator_title') : $_product->getData('name');
 			$video->description = $_product->getData('clipgenerator_description') ? $_product->getData('clipgenerator_description') : $_product->getData('description');
 			$logoUrl = $_product->getData('clipgenerator_logo') ? $_product->getData('clipgenerator_logo') : Mage::getStoreConfig('clipgenerator/settings/clipgenerator_logo_url', Mage::app()->getStore());
+            $logoLink = Mage::getStoreConfig('clipgenerator/settings/clipgenerator_logo_link', Mage::app()->getStore());
+			$color = Mage::getStoreConfig('clipgenerator/settings/clipgenerator_player_bgcolor', Mage::app()->getStore());
 			if ($logoUrl) {
 				if ($logo = $this->clipgeneratorClient->uploadLogo($logoUrl)) {
 					$logoId = $logo['id'];
@@ -249,7 +251,7 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 					$logo = Logo::fromXml('<logo width="0.2" height="0.2" alpha="1">
                                                 <id>' . $logoId . '</id>
                                                 <url>' . htmlspecialchars($logoUrl) . '</url>
-                                                <link />
+                                                <link>' . $logoLink . '</link>
                                                 <position verticalAlign="top" horizontalAlign="right" />
                                                 <showInStartPage>false</showInStartPage>
                                                 <showInEndPage>false</showInEndPage>
@@ -268,7 +270,10 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 						if ($pImg->getUrl() == $img) {
 							$pic = $this->clipgeneratorClient->uploadPicture($img);
 							$picture = new Picture($pic['id']);
+                            // add new frame
 							$frame = new Frame($picture);
+                            // set config bg color
+							$frame->backgroundColor = hexdec($color);
 							if ($pImg->getData('label')) {
 								$l3 = new LowerThird();
 								$l3->verticalAlign = 300;
