@@ -1,0 +1,225 @@
+<script type="text/javascript" src="/js/scriptaculous/sound.js"></script>
+<?php
+$clipgen = Mage::helper('clipgenerator');
+$music = $clipgen->getMusic();
+?>
+<style type="text/css">
+	#musicchoose {
+		width: 608px;
+	}
+
+	#songs {
+		width: 608px;
+		height: 300px;
+		overflow: scroll;
+		background-color: #d3d3d3;
+	}
+
+	#songs div {
+		width: 275px;
+		float: left;
+		padding: 5px;
+		margin: 5px;
+		background-color: #ffffff;
+		height: 50px;
+	}
+
+	#songs div img {
+		width: 50px;
+		height: 50px;
+		float: left;
+		padding-right: 5px;
+	}
+
+	#select li {
+		display: block;
+		float: left;
+		width: 116px;
+		text-align: center;
+		margin: 0;
+		padding: 2px 0;
+		color: #666;
+		font-weight: bold;
+		border: 1px solid #d3d3d3;
+	}
+
+	.clear {
+		width: 100%;
+		clear: both;
+		height: 0px;
+	}
+
+	.choosesong {
+		cursor: pointer;
+	}
+
+	#songs .actsong {
+		color: #ffffff;
+		background-color: #999;
+	}
+
+	#contentmusic {
+		position: relative;
+	}
+
+	#musicleftmenu {
+		position: absolute;
+		left: -202px;
+		top: 0;
+		height: 298px;
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		overflow: scroll;
+	}
+
+	#musicleftmenu li {
+		padding: 4px 10px;
+		color: #666;
+		font-weight: bold;
+	}
+
+	#select li:hover, #select li.act, #musicleftmenu li.act, #musicleftmenu li:hover {
+		cursor: pointer;
+		background-color: #d3d3d3;
+		color: #fff;
+	}
+
+	.control {
+		float: right;
+		display: none;
+	}
+
+	.actsong .control {
+		display: inline;
+	}
+
+	.cprev {
+		display: none;
+	}
+
+	.hidden {
+		display: none;
+	}
+</style>
+<span><?= $clipgen->__('für die Preview ist der Quicktime Player erforderlich') ?></span>
+<div id="musicchoose">
+	<ul id="select">
+		<li class="genres"><?= $clipgen->__('Genre') ?></li>
+		<li class="moods"><?= $clipgen->__('Mood') ?></li>
+		<li class="instruments"><?= $clipgen->__('Instruments') ?></li>
+		<li class="speeds"><?= $clipgen->__('Speed') ?></li>
+		<li class="themes"><?= $clipgen->__('Theme') ?></li>
+	</ul>
+	<div class="clear">&nbsp;</div>
+	<div id="contentmusic">
+		<ul id="musicleftmenu">
+			<li class="act"><?= $clipgen->__('Alle') ?></li>
+		</ul>
+		<div id="songs">
+
+		</div>
+	</div>
+</div>
+<pre>
+</pre>
+<script type="text/javascript">
+	// music storage
+	var storage = <?=json_encode($music)?>;
+	var currentTab = 'genres';
+	var controlStart = 'play';
+	var controlStop = 'stop';
+
+	function songTimeFormat(seconds) {
+		var minutes = ((seconds / 60) + "").split('.');
+		var sec = seconds % 60;
+		if (sec < 10) {
+			sec = "0" + sec;
+		}
+		return minutes[0] + ":" + sec;
+	}
+
+	function addSong(song) {
+		$('songs').insert('<div class="choosesong"><img src="' + song['cover'] + '" /><strong class="title">' + song['title'] + '</strong><br/>' + song['label'] + '<br/> Dauer: ' + songTimeFormat(song['length']) + '<span class="control">play</span><span class="cprev">' + song['previewUrl'] + '</span></div>');
+	}
+
+	storage['songs'].each(function (song) {
+		addSong(song);
+	});
+
+	function findProp(arr, id) {
+		var found = false;
+		arr.some(function (e) {
+			if (e == id) {
+				found = true;
+				return true;
+			}
+		});
+		return found;
+	}
+
+	document.observe('dom:loaded', function () {
+		if($('clipgenerator_music_select')) {
+			$('clipgenerator_music_select').addClassName('hidden');
+		}
+		$('select').observe('click', function (event) {
+			var load = Event.element(event).readAttribute('class');
+			$$('#select li').invoke('removeClassName', 'act');
+			Event.element(event).addClassName('act');
+			currentTab = load;
+			if (storage[load].length != 0) {
+				// clear lists
+				$('musicleftmenu').update('');
+				storage[load].each(function (el) {
+					$('musicleftmenu').insert('<li class="' + el['id'] + '">' + el['title'] + '</li>');
+				});
+			}
+		});
+		$('musicleftmenu').observe('click', function (event) {
+			id = Event.element(event).readAttribute('class');
+			$$('#musicleftmenu li').invoke('removeClassName', 'act');
+			Event.element(event).addClassName('act');
+			if (storage[currentTab].length != 0) {
+				$('songs').update('');
+				storage['songs'].each(function (song) {
+					if (findProp(song[currentTab], id)) {
+						addSong(song);
+					}
+				});
+			}
+		});
+
+		$('songs').observe('click', function (event) {
+			classEl = Event.element(event).readAttribute('class');
+			if (classEl == 'choosesong') {
+				$$('.actsong').invoke('removeClassName', 'actsong');
+				Event.element(event).addClassName('actsong');
+				var elArr = Event.element(event).childElements();
+				var findString = elArr[1].innerHTML;
+				$$('#clipgenerator_settings_clipgenerator_song option, #clipgenerator_song option').each(function (el) {
+					if (findString == el.innerHTML) {
+						el.selected = true;
+					} else {
+						el.selected = false;
+					}
+				});
+				Sound.enable();
+				Sound.play('', {replace: true});
+				Sound.disable();
+			} else if (classEl == 'control') {
+				if (Event.element(event).innerHTML == controlStop) {
+					$$('.control').invoke('update', controlStart);
+					Sound.enable();
+					Sound.play('', {replace: true});
+					Sound.disable();
+				} else {
+					$$('.control').invoke('update', controlStart);
+					Event.element(event).update(controlStop);
+					myEl = Event.element(event);
+					var els = myEl.up().select('.cprev');
+					Sound.enable();
+					Sound.play(els[0].innerHTML, {replace: true});
+				}
+			}
+		});
+	});
+</script>

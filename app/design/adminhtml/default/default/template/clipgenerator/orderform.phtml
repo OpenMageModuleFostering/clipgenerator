@@ -1,0 +1,288 @@
+<style type="text/css">
+	.clipform {
+		width: 750px;
+	}
+
+	.cols3, .cols4 {
+		width: 640px;
+		font-family: Verdana;
+	}
+
+	.clipform h1 {
+		font-size: 17px;
+	}
+
+	.clipform h2 {
+		font-size: 16px;
+	}
+
+	.cols3 .col {
+		width: 200px;
+		float: left;
+		margin-right: 10px;
+		text-align: center;
+	}
+
+	.cols4 .col {
+		width: 150px;
+		float: left;
+		margin-right: 10px;
+		text-align: center;
+        font-size:10px;
+	}
+
+	.cols3 .col div, .cols4 .col div {
+		border: 1px solid #000;
+	}
+
+	.clear {
+		width: 100%;
+		height: 1px;
+		clear: both;
+	}
+
+	.logotrivid {
+		float: left;
+		margin: 40px 20px 0 0;
+	}
+
+	.welcome {
+		float: left;
+		width: 500px;
+	}
+
+	.inwrap {
+		margin: 10px 0 20px 20px;
+	}
+
+	.mdown {
+		margin-bottom: 18px;
+	}
+    .centerwrap {
+        text-align: center;
+    }
+    .centerwrap .clipform {
+        margin:0 auto;
+        text-align: left;
+        padding:0 10px;
+    }
+    .price {
+        font-size:16px;
+        font-weight:bold;
+    }
+    label {
+        font-size: 11px;
+    }
+    #alert { display:none; border:1px solid #ff0000; background-color:#FFB6C1; margin:20px 0 10px 0; padding:5px; }
+</style>
+<div class="centerwrap">
+<div class="clipform">
+	<div>
+		<img class="logotrivid" src="http://www.trivid.jp/wp-content/uploads/2013/02/trivid_logo.png"
+			 title="Trivid GmbH" alt="Trivid GmbH" />
+
+		<div class="welcome">
+			<h1>Sehr geehrter Shop-Betreiber,</h1>
+            vielen Dank für Ihr Interesse an der Clipgenerator<sup>TM</sup> simpleCOMMERCE Video-Lösung für Magento. Um Clipgenerator<sup>TM</sup> für Ihren Shop nutzen zu können, benötigen Sie einen API-Zugang den Sie nachfolgend kostenpflichtig bestellen können. Direkt im Anschluss an die Bestellung erhalten Sie von uns einen temporären API-Zugang, damit Sie sofort loslegen können.
+            Die Rechnungsstellung erfolgt innerhalb von 2-3 Werktagen per E-Mail an die angegebene E-Mail-Adresse.
+		</div>
+	</div>
+	<div class="clear mdown">&nbsp;</div>
+	<form action="http://magento.clipgenerator.com/" method="POST" id="orderf">
+		<ol>
+			<li>
+				<h2>1. Paket auswählen</h2>
+
+				<div class="inwrap">
+					<div class="cols4">
+                        <div class="col">
+                            <div>
+                                <strong>simpleCOMMERCE 150</strong><br />
+                                für insgesamt 150 Produktvideos<br />
+                                <span class="price">39 EUR</span><br />
+                                /Monat
+                            </div>
+                            <input type="radio" name="editor-package" value="Magento-video-150" /> <label>simpleCOMMERCE
+                            150</label>
+                        </div>
+                        <div class="col">
+							<div>
+								<strong>simpleCOMMERCE 300</strong><br />
+								für insgesamt 300 Produktvideos<br />
+                                <span class="price">59 EUR</span><br />
+								/Monat
+							</div>
+							<input type="radio" name="editor-package" value="Magento-video-300" /> <label>simpleCOMMERCE
+							300</label>
+						</div>
+						<div class="col">
+							<div>
+								<strong>simpleCOMMERCE 750</strong><br />
+								für insgesamt 750 Produktvideos<br />
+                                <span class="price">139 EUR</span><br />
+								/Monat
+							</div>
+							<input type="radio" name="editor-package" value="Magento-video-750" /> <label>simpleCOMMERCE
+							750</label>
+						</div>
+						<div class="col">
+							<div>
+								<strong>simpleCOMMERCE 1500</strong><br />
+								für insgesamt 1500 Produktvideos<br />
+                                <span class="price">289 EUR</span><br />
+								/Monat
+							</div>
+							<input type="radio" name="editor-package" value="Magento-video-1500" /> <label>simpleCOMMERCE
+							1500</label>
+						</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<br />
+
+					<h2>In jedem Paket enthalten:</h2>
+					<ul>
+						<li>unbegrenzte Aktualisierung und Synchronisierung von Videos bei jeder Änderung</li>
+						<li>unbegrenzte Anzahl Aufrufe Produkt-Videos</li>
+						<li>nklusive Video-Hosting & Video-Streaming</li>
+						<li>zusätzlich statische Video-Dateien in allen Formaten</li>
+						<li>hohe Video-Qualität und Video-Player mit vielen Funktionen</li>
+						<li>wechselnde Video-Designs</li>
+						<li>150 Musik-Titel, voll lizensiert und abwechselnd unterlegt</li>
+						<li>Suchmaschinen-Optimierung (SEO) durch dynamische Sitemaps, Thumbnails, Titel und Keywords</li>
+                        <li>Video-Ausgabe-Format als url, embed code oder Player mit Share-Funktionen für Social-Media</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h2>2. Optional: Download-Pakete</h2>
+
+				<div class="inwrap">
+                    Damit Sie die erstellten, immer aktuellen Produkt-Videos auch an anderer Stelle verwenden können, bieten wir den Download als Video-Datei an (mp4-Format). Ausgewählte Produkt-Videos können Sie somit auch offline verwenden (z.B. für Präsentationen am POS) oder außerhalb Ihres Shops (z.B. auf YouTube oder anderen Verkaufs-oder Vergleichs-Portalen) veröffentlichen.
+					<div class="cols4">
+						<div class="col">
+							<div>
+                                <br/>keine Video Downloads bestellen<br/><span class="price">&nbsp;</span>
+							</div>
+							<input type="radio" name="downloads-package" value="" /> <label>ohne</label>
+						</div>
+						<div class="col">
+							<div>
+								<strong>30 Video Downloads</strong><br />
+                                <span class="price">59 EUR</span><br />
+								Gesamtpreis<br />
+								(1,96 EUR / Video)
+							</div>
+							<input type="radio" name="downloads-package" value="Magento-downloads-30" /> <label>30 Video
+							Downloads</label>
+						</div>
+						<div class="col">
+							<div>
+								<strong>50 Video Downloads</strong><br />
+                                <span class="price">79 EUR</span><br />
+								Gesamtpreis<br />
+								(1,58 EUR / Video)
+							</div>
+							<input type="radio" name="downloads-package" value="Magento-downloads-50" /> <label>50 Video
+							Downloads</label>
+						</div>
+						<div class="col">
+							<div>
+								<strong>100 Video Downloads</strong><br />
+                                <span class="price">139 EUR</span><br />
+								Gesamtpreis<br />
+								(1,39 EUR / Video)
+							</div>
+							<input type="radio" name="downloads-package" value="Magento-downloads-100" /> <label>100 Video
+							Downloads</label>
+						</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+				</div>
+			</li>
+			<li>
+				<h2>3. Ihre Angaben zur Bestellung</h2>
+
+				<div class="inwrap">
+					<div>
+						Bitte geben Sie nachfolgend die Rechnungsadresse ein, die für diese Bestellung verwendet werden soll.
+					</div>
+                    <div id="alert">Bitte geben Sie alle Pflichtfelder an!</div>
+					<div>
+						<label>Name (Pflichtfeld)</label><br />
+						<input name="name" type="text" /><br />
+						<label>Firma (optional)</label><br />
+						<input name="company" type="text" /><br />
+						<label>USt-IdNr (optional)</label><br />
+						<input name="ust-idnr" type="text" /><br />
+						<label>Adresse (Pflichtfeld)</label><br />
+						<input name="address" type="text" /><br />
+						<label>PLZ, Ort (Pflichtfeld)</label><br />
+						<input name="city" type="text" /><br />
+						<label>E-Mail-Adresse (Pflichtfeld)</label><br />
+						<input name="email" id="mailfield" type="text" /><br />
+						<label>Telefon (Pflichtfeld)</label><br />
+						<input name="phone" type="text" /><br />
+						<label>Raum für Anmerkungen zu Ihrer
+							Bestellung</label><br />
+						<textarea name="message"></textarea><br />
+						<input type="checkbox" name="confirmation" /> Hiermit
+						bestätige ich die Bestellung.<br />
+						<button id="submit">Kostenpflichtig bestellen</button>
+						<br /><br />
+
+						<div>
+							<strong>Zahlungsbedingungen:</strong><br />
+                            Die simpleCOMMERCE-Lizenz kann jederzeit mit einer Frist von 30 Tagen zum Monatsende gekündigt werden. Eine Erst-Laufzeit von mindestens 12 Monaten wird mit einem Basispreis/Flatrate im voraus für die Laufzeit erhoben per Rechnung erhoben. Zahlbar sofort nach Rechnungsstellung ohne Abzug.
+                            Die simpleCOMMERCE- / Clipgenerator-Lösung beinhaltet die ausschließlichen, zeitlich unbegrenzten, internationalen Nutzungsrechte für Musik, Video-Effekte und Designs. Das automatisierte Video-Verfahren mit Clipgenerator ist patentiert und rechtlich geschützt. Das Nutzungsrecht geht erst nach vollständiger Bezahlung der Leistungen auf den Kunden über.
+                            Es gelten unsere allgemeinen Geschäftsbedingungen, die Sie auf unserer Website unter “www.trivid.com/agb” abrufen können oder auf Nachfrage zugeschickt erhalten.
+						</div>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</form>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+	// send form
+	jQuery.noConflict();
+	var adminUrl = '<?=Mage::helper("adminhtml")->getUrl("clipgenerator/adminhtml_orderform/index");?>';
+	var successUrl = '<?=Mage::helper("adminhtml")->getUrl("adminhtml/system_config/edit/section/clipgenerator");?>';
+
+	jQuery('#submit').click(function(event) {
+		jQuery.ajax({
+				type: 'POST',
+				url: 'http://magento.clipgenerator.com/',
+				crossDomain: true,
+				data: jQuery('#orderf').serialize(),
+				dataType: 'json',
+				success: function (responseData, textStatus, jqXHR) {
+					if(responseData['apiId'] && responseData['apiUser'] && responseData['apiSecret']) {
+						jQuery.ajax({
+							type: 'POST',
+							crossDomain: true,
+							url: adminUrl,
+							data: {
+								'form_key': '<?=Mage::getSingleton('core/session')->getFormKey();?>',
+								'isAjax': true,
+								'apiId': responseData['apiId'],
+								'apiUser': responseData['apiUser'],
+								'apiSecret': responseData['apiSecret'],
+								'email': jQuery('#mailfield').val()
+							},
+							dataType: 'json',
+							success: function(result) {
+								window.location = successUrl;
+							}
+						});
+					}
+				},
+				error: function (responseData, textStatus, errorThrown) {
+					alert('Ein Fehler ist aufgetreten! Prüfen Sie Ihre Daten.');
+				}
+			});
+		event.preventDefault();
+	});
+</script>

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<clipgenerator translate="label" module="clipgenerator">
+			<label>Clipgenerator Optionen</label>
+			<tab>general</tab>
+			<sort_order>90</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>General</label>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<clipgenerator_contingent_view translate="label">
+							<label>Kontingentsanzeige</label>
+							<frontend_type>label</frontend_type>
+							<frontend_model>trivid_clipgenerator_block_adminhtml_system_config_form_field_contingentlabel</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_contingent_view>
+						<clipgenerator_email translate="label">
+							<label>E-Mail</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_email>
+						<clipgenerator_api_user_id translate="label">
+							<label>API USER ID</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_api_user_id>
+						<clipgenerator_api_secret translate="label">
+							<label>API SECRET</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_api_secret>
+					</fields>
+				</general>
+				<settings translate="label">
+					<label>Standard Settings</label>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+<!--						<clipgenerator_song>
+							<label>Song</label>
+							<frontend_type>select</frontend_type>
+							<source_model>trivid_clipgenerator_model_adminhtml_system_config_source_musics</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_song>
+						<clipgenerator_music translate="label">
+							<label>erweiterte Song Auswahl</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>trivid_clipgenerator_block_adminhtml_system_config_form_field_musiclightbox</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_music>
+						<clipgenerator_video_design translate="label">
+							<label>Video Design</label>
+							<frontend_type>select</frontend_type>
+							<source_model>trivid_clipgenerator_model_adminhtml_system_config_source_designs</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_video_design>-->
+						<clipgenerator_logo_url translate="label">
+							<label>Logo URL</label>
+							<frontend_type>text</frontend_type>
+							<comment><![CDATA[(Für optimale Darstellung bitte nur freigestellte Logos im PNG-Format verwenden. Maximale Größe 100 x 100 Pixel.)]]></comment>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_logo_url>
+						<clipgenerator_output translate="label">
+							<label>Automatische Ausgabe</label>
+							<frontend_type>select</frontend_type>
+                            <comment><![CDATA[Das Video wird unter dem Produkt-Beschreibungs Block(product.description) ausgegeben.]]></comment>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</clipgenerator_output>
+					</fields>
+				</settings>
+			</groups>
+		</clipgenerator>
+	</sections>
+</config>
