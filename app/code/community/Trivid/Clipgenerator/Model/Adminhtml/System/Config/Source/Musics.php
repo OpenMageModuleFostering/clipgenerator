@@ -18,14 +18,13 @@
  * @since      File available since Release 1.0.0
  */
 /**
- * Used in creating options for Clipgenerator Music config value selection
- *
+ * Used in creating options for Clipgenerator Music config value selection.
+ * @package Trivid
  */
 class Trivid_Clipgenerator_Model_Adminhtml_System_Config_Source_Musics {
 
 	/**
-	 * Options getter
-	 *
+	 * Creates options array of the music.
 	 * @return array
 	 */
 	public function toOptionArray() {
@@ -43,8 +42,7 @@ class Trivid_Clipgenerator_Model_Adminhtml_System_Config_Source_Musics {
 	}
 
 	/**
-	 * Get options in "key-value" format
-	 *
+	 * Creates options in "key-value" format of the music.
 	 * @return array
 	 */
 	public function toArray() {

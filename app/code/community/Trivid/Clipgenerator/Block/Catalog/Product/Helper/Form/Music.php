@@ -11,14 +11,23 @@
  *
  * @package    Trivid
  * @author     Trivid GmbH <author@example.com>
- * @author     Another Author <another@example.com>
  * @copyright  2013 Trivid GmbH
  * @license    http://www.clipgenerator.com/static/public/legal.php Clipgenerator - End User License Agreement
  * @version    1.0.0
  * @since      File available since Release 1.0.0
  */
+/**
+ * Class Trivid_Clipgenerator_Block_Catalog_Product_Helper_Form_Music
+ *
+ * Creates the music chooser for the product edit view.
+ * @package Trivid
+ */
 class Trivid_Clipgenerator_Block_Catalog_Product_Helper_Form_Music extends Varien_Data_Form_Element_Text {
-	public function getAfterElementHtml() {
+    /**
+     * Renders the music chooser template for editing products.
+     * @return string
+     */
+    public function getAfterElementHtml() {
 		$block = Mage::getSingleton('core/layout')
 				->createBlock('adminhtml/template', '', array('template' => 'clipgenerator/music.phtml'))
 				->setIsRenderToJsTemplate(TRUE);

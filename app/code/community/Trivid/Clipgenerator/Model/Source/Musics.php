@@ -11,15 +11,22 @@
  *
  * @package    Trivid
  * @author     Trivid GmbH <author@example.com>
- * @author     Another Author <another@example.com>
  * @copyright  2013 Trivid GmbH
  * @license    http://www.clipgenerator.com/static/public/legal.php Clipgenerator - End User License Agreement
  * @version    1.0.0
  * @since      File available since Release 1.0.0
  */
+/**
+ * Class Trivid_Clipgenerator_Model_Source_Musics
+ * @package Trivid
+ */
 class Trivid_Clipgenerator_Model_Source_Musics extends Mage_Eav_Model_Entity_Attribute_Source_Abstract {
 
-	public function getAllOptions() {
+    /**
+     * Get all music options as array.
+     * @return array
+     */
+    public function getAllOptions() {
 		$music = Mage::helper('clipgenerator')->getMusic();
 		$musicArr = array();
 		foreach ($music['songs'] as $k => $v) {

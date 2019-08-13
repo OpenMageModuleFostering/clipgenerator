@@ -18,14 +18,13 @@
  * @since      File available since Release 1.0.0
  */
 /**
- * Used in creating options for Clipgenerator Designs config value selection
- *
+ * Creates options for Clipgenerator Designs config value selection.
+ * @package Trivid
  */
 class Trivid_Clipgenerator_Model_Adminhtml_System_Config_Source_Designs {
 
 	/**
-	 * Options getter
-	 *
+	 * Creates options array of the designs.
 	 * @return array
 	 */
 	public function toOptionArray() {
@@ -43,8 +42,7 @@ class Trivid_Clipgenerator_Model_Adminhtml_System_Config_Source_Designs {
 	}
 
 	/**
-	 * Get options in "key-value" format
-	 *
+	 * Creates options in "key-value" format of the designs.
 	 * @return array
 	 */
 	public function toArray() {

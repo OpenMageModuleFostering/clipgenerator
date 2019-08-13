@@ -11,14 +11,23 @@
  *
  * @package    Trivid
  * @author     Trivid GmbH <author@example.com>
- * @author     Another Author <another@example.com>
  * @copyright  2013 Trivid GmbH
  * @license    http://www.clipgenerator.com/static/public/legal.php Clipgenerator - End User License Agreement
  * @version    1.0.0
  * @since      File available since Release 1.0.0
  */
+/**
+ * Class Trivid_Clipgenerator_Block_Video
+ *
+ * Video block for individual inclusion.
+ * @package
+ */
 class Trivid_Clipgenerator_Block_Video extends Mage_Core_Block_Text {
-	protected function _toHtml() {
+    /**
+     * Generates the video iframe for the block include opiton.
+     * @return mixed|string
+     */
+    protected function _toHtml() {
 		$_product = Mage::registry('current_product');
 		$video = $_product->getData('clipgenerator_video_id');
 		$show = $_product->getData('clipgenerator_show');

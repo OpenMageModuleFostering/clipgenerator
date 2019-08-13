@@ -11,16 +11,21 @@
  *
  * @package    Trivid
  * @author     Trivid GmbH <author@example.com>
- * @author     Another Author <another@example.com>
  * @copyright  2013 Trivid GmbH
  * @license    http://www.clipgenerator.com/static/public/legal.php Clipgenerator - End User License Agreement
  * @version    1.0.0
  * @since      File available since Release 1.0.0
  */
+/**
+ * Class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Contingentlabel
+ *
+ * Contingent label handles contingent view in configuration.
+ * @package Trivid
+ */
 class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Contingentlabel extends Mage_Adminhtml_Block_System_Config_Form_Field {
 	/**
-	 * contingent html
-	 *
+	 * Renders the contingent template with the given contingent information
+     * of the user.
 	 * @return string
 	 */
 	protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element) {

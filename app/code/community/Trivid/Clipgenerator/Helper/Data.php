@@ -11,7 +11,6 @@
  *
  * @package    Trivid
  * @author     Trivid GmbH <author@example.com>
- * @author     Another Author <another@example.com>
  * @copyright  2013 Trivid GmbH
  * @license    http://www.clipgenerator.com/static/public/legal.php Clipgenerator - End User License Agreement
  * @version    1.0.0
@@ -23,14 +22,24 @@ require_once(Mage::getModuleDir('', 'Trivid_Clipgenerator') . '/lib/clipgenerato
 require_once(Mage::getModuleDir('', 'Trivid_Clipgenerator') . '/lib/clipgenerator/Frame.php');
 require_once(Mage::getModuleDir('', 'Trivid_Clipgenerator') . '/lib/clipgenerator/Logo.php');
 require_once(Mage::getModuleDir('', 'Trivid_Clipgenerator') . '/lib/clipgenerator/LowerThird.php');
+/**
+ * Class Trivid_Clipgenerator_Helper_Data
+ *
+ * Main helper class for handling video generation, activation and so on.
+ * @package Trivid
+ */
 class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 
-	protected $clipgeneratorClient;
+    /**
+     * Instance of the clipgenerator client.
+     * @var ClipgeneratorClient
+     */
+    protected $clipgeneratorClient;
 
 	/**
-	 * initalize clipgenerator api with given api credentials from
+	 * Initalize clipgenerator api with given api credentials from.
 	 * clipgenerator konfiguration
-	 *
+	 * @return void
 	 */
 	private function initClipgeneratorApi() {
 		$apiUserId = Mage::getStoreConfig('clipgenerator/general/clipgenerator_api_user_id', Mage::app()->getStore());
@@ -46,7 +55,13 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 		);
 	}
 
-	private function curlCall($method, $params = array()) {
+    /**
+     * Method for calling requests to clipgenerator api direct via curl.
+     * @param $method
+     * @param array $params
+     * @return mixed
+     */
+    private function curlCall($method, $params = array()) {
 		if ($method) {
 			$apiCredentials = array(
 				'userId' => Mage::getStoreConfig('clipgenerator/general/clipgenerator_api_user_id', Mage::app()->getStore()),
@@ -67,21 +82,31 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 	}
 
-	public function uploadPicture($file) {
+    /**
+     * Uploads the given picture url to the current api account.
+     * @param $file
+     * @return array|bool
+     */
+    public function uploadPicture($file) {
 		$this->initClipgeneratorApi();
 
 		return $this->clipgeneratorClient->uploadPicture($file);
 	}
 
-	public function saveVideo($xml) {
+    /**
+     * Save the generated xml to the given video or creates a new video.
+     * @param $xml
+     * @return false
+     */
+    public function saveVideo($xml) {
 		$this->initClipgeneratorApi();
 
 		return $this->clipgeneratorClient->saveVideo($xml);
 	}
 
 	/**
-	 * returns array of designs
-	 *
+	 * Returns a array of the clipgenerator designs.
+	 * @return array
 	 */
 	public function getDesigns() {
 		$this->initClipgeneratorApi();
@@ -91,8 +116,8 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * returns array of music
-	 *
+	 * Returns a array of the clipgenerator music.
+	 * @return array
 	 */
 	public function getMusic() {
 		$this->initClipgeneratorApi();
@@ -102,8 +127,8 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * returns array of user
-	 *
+	 * Returns the current user if api credentials match.
+	 * @return array
 	 */
 	public function getUser() {
 		$this->initClipgeneratorApi();
@@ -113,7 +138,9 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
+     * Activates the given products.
 	 * @param $products
+     * @return void
 	 */
 	public function activateVideos($products) {
 		foreach ($products as $product_id) {
@@ -149,7 +176,9 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
+     * Deactivates the given products.
 	 * @param $products
+     * @return void
 	 */
 	public function deactivateVideos($products) {
 		foreach ($products as $product_id) {
@@ -179,7 +208,13 @@ class Trivid_Clipgenerator_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 	}
 
-	public function createVideo($_product) {
+    /**
+     * Creates a video by the given product with the product configuration,
+     * if there are no settings given or missing, it sets randomized value.
+     * @param $_product
+     * @return void
+     */
+    public function createVideo($_product) {
 		$this->initClipgeneratorApi();
 		if ($_product->getData('clipgenerator_show') && $this->getUser()) {
 			$video = new Video($_product->getData('clipgenerator_title'));
