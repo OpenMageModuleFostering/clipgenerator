@@ -106,7 +106,6 @@ $music = $clipgen->getMusic();
 	<ul id="select">
 		<li class="genres"><?= $clipgen->__('Genre') ?></li>
 		<li class="moods"><?= $clipgen->__('Mood') ?></li>
-		<li class="instruments"><?= $clipgen->__('Instruments') ?></li>
 		<li class="speeds"><?= $clipgen->__('Speed') ?></li>
 		<li class="themes"><?= $clipgen->__('Theme') ?></li>
 	</ul>
@@ -169,9 +168,15 @@ $music = $clipgen->getMusic();
 			if (storage[load].length != 0) {
 				// clear lists
 				$('musicleftmenu').update('');
-				storage[load].each(function (el) {
-					$('musicleftmenu').insert('<li class="' + el['id'] + '">' + el['title'] + '</li>');
-				});
+                if(load == 'speeds') {
+                    $H(storage[load]).each(function (el, index) {
+                        $('musicleftmenu').insert('<li class="' + el[0] + '">' + el[1] + '</li>');
+                    });
+                } else {
+                    storage[load].each(function (el) {
+                        $('musicleftmenu').insert('<li class="' + el['id'] + '">' + el['title'] + '</li>');
+                    });
+                }
 			}
 		});
 		$('musicleftmenu').observe('click', function (event) {
