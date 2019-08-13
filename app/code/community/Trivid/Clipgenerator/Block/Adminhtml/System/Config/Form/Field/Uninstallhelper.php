@@ -1,6 +1,6 @@
 <?php
 /**
- * musiclightbox field
+ * Uninstall Field
  *
  * PHP version 5
  *
@@ -17,20 +17,19 @@
  * @since      File available since Release 1.0.0
  */
 /**
- * Class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Musiclightbox
+ * Class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Contingentlabel
  *
- * Musiclightbox creates music chooser in configuration.
+ * Uninstall label handles uninstall helper configuration.
  * @package Trivid
  */
-class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Musiclightbox extends Mage_Adminhtml_Block_System_Config_Form_Field {
+class Trivid_Clipgenerator_Block_Adminhtml_System_Config_Form_Field_Uninstallhelper extends Mage_Adminhtml_Block_System_Config_Form_Field {
 	/**
-	 * Renders music chooser for configuration view from music
-     * chooser tempalte.
+	 * Renders the uninstall template with the given uninstall information
 	 * @return string
 	 */
 	protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element) {
 		$block = Mage::getSingleton('core/layout')
-				->createBlock('adminhtml/template', '', array('template' => 'clipgenerator/music.phtml'))
+				->createBlock('adminhtml/template', '', array('template' => 'clipgenerator/uninstall.phtml'))
 				->setIsRenderToJsTemplate(TRUE);
 
 		return $block->toHtml();

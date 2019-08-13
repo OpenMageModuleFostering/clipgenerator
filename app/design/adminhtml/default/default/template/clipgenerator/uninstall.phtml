@@ -1,0 +1,202 @@
+<a href="?uninstall=1"><?= $this->__('Uninstall') ?></a> | <a href="?install=1"><?= $this->__('Install') ?></a><br/>
+<?php
+    if($_GET['uninstall'] == 1) {
+        $setup = Mage::getResourceModel('catalog/setup','catalog_setup');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_title');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_description');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_keywords');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_logo');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_show');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_design');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_images_select');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_song');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_music_select');
+        $setup->removeAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_video_id');
+        $setup->endSetup();
+        echo '<strong>' . $this->__('Attributes uninstalled.') . '</strong><br /><br />';
+    } else if ($_GET['install'] == 1) {
+        $installer = Mage::getResourceModel('catalog/setup','catalog_setup');
+        $installer->startSetup();
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_title', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'text',
+        	'type' => 'varchar',
+        	'label' => 'Video Titel',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_description', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'textarea',
+        	'type' => 'varchar',
+        	'label' => 'Beschreibung',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_keywords', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'text',
+        	'type' => 'varchar',
+        	'label' => 'Video Keywords',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_logo', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'text',
+        	'type' => 'varchar',
+        	'label' => 'Video Logo URL',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_show', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'boolean',
+        	'type' => 'int',
+        	'default' => 0,
+        	'label' => 'Video ausgeben',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_design', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'select',
+        	'type' => 'varchar',
+        	'label' => 'Design',
+        	'source' => 'trivid_clipgenerator_model_source_designs',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_images_select', array(
+        	'group' => 'Clipgenerator',
+        	'type' => 'text',
+        	'input' => 'text',
+        	'backend' => '',
+        	'input_renderer' => 'clipgenerator/catalog_product_helper_form_images', //definition of renderer
+        	'label' => 'Bildauswahl',
+        	'class' => '',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_song', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'select',
+        	'type' => 'varchar',
+        	'label' => 'Musik',
+        	'source' => 'trivid_clipgenerator_model_source_musics',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_music_select', array(
+        	'group' => 'Clipgenerator',
+        	'type' => 'varchar',
+        	'backend' => '',
+        	'input_renderer' => 'clipgenerator/catalog_product_helper_form_music', //definition of renderer
+        	'label' => 'erweiterte Auswahl',
+        	'class' => '',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'clipgenerator_video_id', array(
+        	'group' => 'Clipgenerator',
+        	'input' => 'text',
+        	'type' => 'varchar',
+        	'label' => 'Video ID',
+        	'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
+        	'visible' => TRUE,
+        	'required' => FALSE,
+        	'user_defined' => TRUE,
+        	'searchable' => FALSE,
+        	'filterable' => FALSE,
+        	'comparable' => FALSE,
+        	'visible_on_front' => FALSE,
+        	'unique' => FALSE,
+        	'apply_to' => 'simple,configurable,bundle,grouped',
+        	'is_configurable' => FALSE,
+        ));
+        $installer->endSetup();
+        echo '<strong>' . $this->__('Attributes installed.') . '</strong><br /><br />';
+    }
+?>
+<p><?= $this->__('ATTENTION: All Clipgenerator settings in your products will be deleted.') ?></p>
