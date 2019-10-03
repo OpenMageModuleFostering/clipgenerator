@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/clipgenerator",
+    "name": "OpenMageModuleFostering\/clipgenerator",
     "type": "magento-module",
     "license": "Clipgenerator---End-User-License-Agreement",
     "homepage": "",
     "description": "Professionelle Videos aus Bildern und Daten Ihrer Artikel in einem automatisierten, patentierten Verfahren.",
     "authors": [
-    {
-        "name": "Trivid GmbH",
-        "email": "magento@clipgenerator.com"
-    }
-],
+        {
+            "name": "Trivid GmbH",
+            "email": "magento@clipgenerator.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
